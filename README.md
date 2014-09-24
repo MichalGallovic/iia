@@ -1,4 +1,6 @@
-iia
+IIA
 ===
+Internet and intranet applications
+School subject on STU-FEI Slovakia
 
-php
+Subject: mostly PHP
