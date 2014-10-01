@@ -1,6 +1,6 @@
 <?php
 
-class Grapher {
+class ChartMaker {
 
 	// gd looks like state machine, so after changing any property
 	// it needs to be recreated
@@ -48,14 +48,35 @@ class Grapher {
 		$this->data = $data;
 		
 	}
+	public function setWidth($width) {
+		if (!is_numeric($width)) {
+			throw new Exception('Width must be numeric');
+		}
+		$this->properties["width"] = $width;
+	}
+	public function setHeight($height) {
+		if (!is_numeric($width)) {
+			throw new Exception('Height must be numeric');
+		}
+		$this->properties["height"] = $height;
+	}
 	public function setLabelX($label) {
+		if (is_array($label)) {
+			throw new Exception('Label cannot be array');
+		}
 		$this->properties["labelXText"] = $label;
 	}
 
 	public function setLabelY($label) {
+		if (is_array($label)) {
+			throw new Exception('Label cannot be array');
+		}
 		$this->properties["labelYText"] = $label;
 	}
 	public function setTitle($title) {
+		if (is_array($title)) {
+			throw new Exception('Title cannot be array');
+		}
 		$this->properties["titleText"] = $title;
 	}
 
@@ -78,9 +99,53 @@ class Grapher {
 	}
 
 	public function setLabelColor($red,$green,$blue) {
-		$this->properties["labelColor"]["r"] = $red;
-		$this->properties["labelColor"]["g"] = $green;
-		$this->properties["labelColor"]["b"] = $blue;
+		if (is_numeric($red) && is_numeric($green) && is_numeric($blue)) {
+			$this->properties["labelColor"]["r"] = $red;
+			$this->properties["labelColor"]["g"] = $green;
+			$this->properties["labelColor"]["b"] = $blue;
+		} else {
+			throw new Exception('Colors must be in numeric format');
+		}
+	}
+
+	public function setTitleColor($red,$green,$blue) {
+		if (is_numeric($red) && is_numeric($green) && is_numeric($blue)) {
+			$this->properties["titleColor"]["r"] = $red;
+			$this->properties["titleColor"]["g"] = $green;
+			$this->properties["titleColor"]["b"] = $blue;
+		} else {
+			throw new Exception('Colors must be in numeric format');
+		}
+	}
+
+	public function setColumnPadding($padding) {
+		if (is_numeric($padding)) {
+			$this->properties["columnPadding"] = $padding;
+		}
+	}
+
+	public function setMarginLeft($marginLeft) {
+		if (is_numeric($marginLeft)) {
+			$this->properties["marginLeft"] = $marginLeft;
+		}
+	}
+
+	public function setMarginRight($marginRight) {
+		if (is_numeric($marginRight)) {
+			$this->properties["marginRight"] = $marginRight;
+		}
+	}
+
+	public function setMarginTop($marginTop) {
+		if (is_numeric($marginTop)) {
+			$this->properties["marginTop"] = $marginTop;
+		}
+	}
+
+	public function setMarginBottom($marginBottom) {
+		if (is_numeric($marginBottom)) {
+			$this->properties["marginBottom"] = $marginBottom;
+		}
 	}
 
 	public function setColumnColor($red,$green,$blue) {
@@ -94,7 +159,7 @@ class Grapher {
 		
 	}
 
-	public function setBackgroundColorRGB($red, $green, $blue) {
+	public function setBackgroundColor($red, $green, $blue) {
 		if (is_numeric($red) && is_numeric($green) && is_numeric($blue)) {
 			$this->properties["backgroundColor"]["r"] = $red;
 			$this->properties["backgroundColor"]["g"] = $green;
