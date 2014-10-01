@@ -1,4 +1,8 @@
 <?php
+/*
+* Copyright (c) 2014 All Right Reserved
+* author: Michal Gallovic
+*/
 
 class ChartMaker {
 
