@@ -1,6 +1,6 @@
 <?php
 /*
-* Copyright (c) 2014 All Right Reserved
+* Copyright (c) 2014 All Rights Reserved
 * author: Michal Gallovic
 */
 
