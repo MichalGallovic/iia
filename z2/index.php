@@ -1,6 +1,6 @@
 <?php
 
-require('Grapher.php');
+require('ChartMaker.php');
 // $graph = new Grapher(600,400);
 // $graph->setBackgroundColorRGB(200,200,200);
 // $graph->setLabelX("Znamky");
