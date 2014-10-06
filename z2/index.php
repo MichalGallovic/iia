@@ -54,7 +54,8 @@
 		<h1>Google Chart</h1>
 		<div class="row">
 			<div class="col-xs-6">
-				
+				<div id="barchart2013"></div>
+				<div id="barchart2014"></div>
 			</div>
 			<div class="col-xs-6">
 				 <div id="piechart2013"></div>
@@ -117,6 +118,11 @@
           ['FN',0]
         ]);
         chart2.draw(data2,options2);
+
+        var barchart1 = new google.visualization.BarChart(document.getElementById('barchart2013'));
+        barchart1.draw(data1,options1);
+        var barchart2 = new google.visualization.BarChart(document.getElementById('barchart2014'));
+        barchart2.draw(data2,options2);
       }
     </script>
 </body>
