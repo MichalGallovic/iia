@@ -16,22 +16,17 @@ class PieChart {
 		$this->properties = $properties;
 		$this->pieColors = [];
 		$this->setColors();
-
 	}
 
 	private function setColors() {
-		if (isset($this->columnLabels)) {
-			$num_labels = count($this->columnLabels);
+		if (isset($this->data)) {
+			$num_labels = count($this->data);
 
 			for($i = 0; $i < 360; $i += 360 / $num_labels) {
 				$hue = $i;
 				$saturation = 90;
 				$lightness = 50;
 				$rgb = ColorHSLtoRGB($hue/360, $saturation/100, $lightness/100);
-
-				array_walk($rgb, function(&$value, $key) {
-					$value = $value/255;
-				});
 
 				array_push($this->pieColors, $rgb);
 			}
@@ -80,62 +75,73 @@ class PieChart {
 	}
 
 	private function drawLegend() {
-		$legend = $this->columnLabels;
+		$legend = $this->data;
 		$legendWidth = $this->properties["legendWidth"];
 		$marginTop = $this->properties["marginTop"];
+		$marginBottom = $this->properties["marginBottom"];
+		$legendMarginLeft = 20;
+		$legendPadding = 10;
+		$height = $this->properties["height"];
+		$legendItemHeight  = ($height - $marginTop - $marginBottom)/count($legend);
+		$textMargin = 10;
 
-		foreach ($legend as $item) {
+		$fontSize = 3;
+		$legendTextColor = imagecolorallocate($this->canvas, $this->properties["legendColor"]["r"],
+			$this->properties["legendColor"]["g"],$this->properties["legendColor"]["b"]);
+
+		for ($i = 0; $i < count($legend); $i++) {
+			$x1 = $this->properties["width"] - $legendWidth + $legendMarginLeft;
+			$y1 = (($i+1) * $legendItemHeight + $marginTop - $legendPadding);
+			$x2 = $this->properties["width"] - $legendWidth +  $legendMarginLeft + $legendItemHeight - $legendPadding;
+			$y2 = ($i * $legendItemHeight) + $marginTop;
+
+			$color = imagecolorallocate($this->canvas, $this->pieColors[$i]["r"],$this->pieColors[$i]["g"],
+				$this->pieColors[$i]["b"]);
+			imagefilledrectangle($this->canvas, $x1, $y1, $x2, $y2, $color);
+
+			$legendLabel = "";
+			if (isset($this->columnLabels[$i])) {
+				$legendLabel = $this->columnLabels[$i];
+			}
+			imagestring($this->canvas, $fontSize, $x2+$textMargin, ($y2+$legendItemHeight/3)-($fontSize*2), $legendLabel, $legendTextColor);
 
 		}
 	}
 
 	private function drawChart(){
 		
-		// $max_value = max($this->data);
-		// $marginLeft = $this->properties["marginLeft"];
-		// $marginBottom = $this->properties["marginBottom"];
-		// $marginTop = $this->properties["marginTop"];
-		// $marginRight = $this->properties["marginRight"] + $this->properties["legendWidth"];
-		// $padding = $this->properties["columnPadding"];
-		// $width = $this->properties["width"];
-		// $height = $this->properties["height"];
-
-
-
-		// $columns = count($this->data);
-		// $column_width = ($width-$marginLeft-$marginRight)/$columns;
-
-		// $columnColor = imagecolorallocate($this->canvas, $this->properties["columnColor"]["r"],
-		// 	$this->properties["columnColor"]["g"],$this->properties["columnColor"]["b"]);
-		// $columnLabelColor = imagecolorallocate($this->canvas, $this->properties["columnLabelColor"]["r"],
-		// 	$this->properties["columnLabelColor"]["g"],$this->properties["columnLabelColor"]["b"]);
-
-		// for ($i=0; $i < $columns; $i++) { 
-
-		// 	$column_height = ($height - $marginBottom - $marginTop) * ($this->data[$i]/$max_value);
-			
-
-		// 	$x1 = $i*$column_width + $marginLeft;
-		// 	$y1 = $height - $marginBottom;
-		// 	$x2 = ($i+1)*$column_width + $marginLeft - $padding;
-		// 	$y2 = $height - $marginBottom - $column_height;
-
-		// 	$columnCenterX = $x2 - ($x2-$x1)/2;
-		// 	$columnCenterYBottom = $y1 +10;
-		// 	$columnCenterYTop = $y2 - 20;
-		// 	imagefilledrectangle($this->canvas, $x1, $y1, $x2, $y2, $columnColor);
-
-		// 	$columnLabel = "";
-		// 	if (isset($this->columnLabels[$i])) {
-		// 		$columnLabel = $this->columnLabels[$i];
-		// 	}
-		// 	imagestring($this->canvas, 3, $columnCenterX, $columnCenterYBottom, $columnLabel, $columnLabelColor);
-		// 	$length = strlen($this->data[$i]);
-		// 	imagestring($this->canvas, 3, $columnCenterX-($length*3), $columnCenterYTop, $this->data[$i], $columnLabelColor);
-
-		// }
-
 		
+		$num_items = count($this->data);
+		$sum_items = array_sum($this->data);
+
+		$marginTop = $this->properties["marginTop"];
+		$marginBottom = $this->properties["marginBottom"];
+		$marginLeft = $this->properties["marginLeft"];
+		$marginRight = $this->properties["marginRight"];
+		$width = $this->properties["width"];
+		$legendWidth = $this->properties["legendWidth"];
+		$height = $this->properties["height"];
+
+		$cx = ($width - $legendWidth)/2;
+		$cy = $height/2;
+		$piePadding = 20;
+		$pieHeight = $height - $marginBottom - $marginTop - $piePadding*2;
+		$pieWidth = $width - $marginLeft - $marginRight - $piePadding*2 - $legendWidth;
+
+		$startAngle = 0;
+		$endAngle = 0;
+		for($i = 0; $i< $num_items; $i++) {
+			$endAngle = 360*($this->data[$i]/$sum_items) + $startAngle;
+			$color = imagecolorallocate($this->canvas, $this->pieColors[$i]["r"],$this->pieColors[$i]["g"],
+				$this->pieColors[$i]["b"]);
+			imagefilledarc($this->canvas, $cx, $cy, $pieWidth, $pieHeight,
+			 $startAngle, $endAngle, $color, IMG_ARC_PIE);
+
+			$startAngle += $endAngle;
+		}
+
+
+
 	}
 
 }

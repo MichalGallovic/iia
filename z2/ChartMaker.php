@@ -27,7 +27,8 @@ class ChartMaker {
 		"marginRight"		=>	50,
 		"columnColor"		=>	["r"=>0,"g"=>255,"b"=>0],
 		"columnLabelColor"	=>	["r"=>0,"g"=>0,"b"=>0],
-		"legendWidth"		=>	100
+		"legendWidth"		=>	150,
+		"legendColor"		=>	["r"=>0,"g"=>0,"b"=>0]
 	];
 
 	//image
@@ -110,6 +111,16 @@ class ChartMaker {
 			$this->properties["labelColor"]["r"] = $red;
 			$this->properties["labelColor"]["g"] = $green;
 			$this->properties["labelColor"]["b"] = $blue;
+		} else {
+			throw new Exception('Colors must be in numeric format');
+		}
+	}
+
+	public function setLegendColor($red,$green,$blue) {
+		if (is_numeric($red) && is_numeric($green) && is_numeric($blue)) {
+			$this->properties["legendColor"]["r"] = $red;
+			$this->properties["legendColor"]["g"] = $green;
+			$this->properties["legendColor"]["b"] = $blue;
 		} else {
 			throw new Exception('Colors must be in numeric format');
 		}
