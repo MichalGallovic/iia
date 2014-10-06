@@ -148,11 +148,14 @@ class PieChart {
 				array_push($data, $item);
 			}
 		}
-		$num_items = count($data);
-		$sum_items = array_sum($data);
+		$num_items = count($this->data);
+		$sum_items = array_sum($this->data);
 
 		for($i = 0; $i< $num_items; $i++) {
-			$deltaAngle = ceil(($data[$i]/$sum_items)*360);
+			if ($this->data[$i] == 0) {
+				continue;
+			}
+			$deltaAngle = ceil(($this->data[$i]/$sum_items)*360);
 			// var_dump($deltaAngle);
 
 			$color = imagecolorallocate($this->canvas, $this->pieColors[$i]["r"],$this->pieColors[$i]["g"],
