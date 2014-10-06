@@ -200,9 +200,18 @@ class ChartMaker {
 		$chart->plot();
 	}
 
+	public function saveBarChart($path) {
+		$chart = new BarChart($this->data, $this->columnLabels, $this->properties);
+		$chart->save($path);
+	}
+
 	public function plotPieChart(){
 		$chart = new PieChart($this->data, $this->columnLabels, $this->properties);
 		$chart->plot();
+	}
+	public function savePieChart($path){
+		$chart = new PieChart($this->data, $this->columnLabels, $this->properties);
+		$chart->save($path);
 	}
 
 }

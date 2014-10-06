@@ -41,6 +41,16 @@ class PieChart {
 		imagepng($this->canvas);
 	}
 
+	public function save($path) {
+		$this->refreshPlot();
+		if (isset($this->data)) {
+			$this->drawChart();
+		}
+
+		imagepng($this->canvas, $path);
+		
+	}
+
 	private function refreshPlot(){
 		//recreate image canvas
 		$this->canvas = imagecreate($this->properties["width"], $this->properties["height"]);
@@ -89,6 +99,8 @@ class PieChart {
 		$legendTextColor = imagecolorallocate($this->canvas, $this->properties["legendColor"]["r"],
 			$this->properties["legendColor"]["g"],$this->properties["legendColor"]["b"]);
 
+		$sum_items = array_sum($this->data);
+
 		for ($i = 0; $i < count($legend); $i++) {
 			$x1 = $this->properties["width"] - $legendWidth + $legendMarginLeft;
 			$y1 = (($i+1) * $legendItemHeight + $marginTop - $legendPadding);
@@ -103,7 +115,9 @@ class PieChart {
 			if (isset($this->columnLabels[$i])) {
 				$legendLabel = $this->columnLabels[$i];
 			}
-			imagestring($this->canvas, $fontSize, $x2+$textMargin, ($y2+$legendItemHeight/3)-($fontSize*2), $legendLabel, $legendTextColor);
+			imagestring($this->canvas, $fontSize, $x2+$textMargin+5, ($y2+$legendItemHeight/3)-($fontSize*2), $legendLabel, $legendTextColor);
+			imagestring($this->canvas, $fontSize, $x2-10-$legendItemHeight/2, ($y2+$legendItemHeight/3)-($fontSize*2), round(($this->data[$i]/$sum_items)*100,1)."%", $legendTextColor);
+
 
 		}
 	}
@@ -111,9 +125,6 @@ class PieChart {
 	private function drawChart(){
 		
 		
-		$num_items = count($this->data);
-		$sum_items = array_sum($this->data);
-
 		$marginTop = $this->properties["marginTop"];
 		$marginBottom = $this->properties["marginBottom"];
 		$marginLeft = $this->properties["marginLeft"];
@@ -129,15 +140,31 @@ class PieChart {
 		$pieWidth = $width - $marginLeft - $marginRight - $piePadding*2 - $legendWidth;
 
 		$startAngle = 0;
-		$endAngle = 0;
+		$percentageTextColor = imagecolorallocate($this->canvas, $this->properties["legendColor"]["r"],
+			$this->properties["legendColor"]["g"],$this->properties["legendColor"]["b"]);
+		$data = [];
+		foreach ($this->data as $item) {
+			if ($item !== 0) {
+				array_push($data, $item);
+			}
+		}
+		$num_items = count($data);
+		$sum_items = array_sum($data);
+
 		for($i = 0; $i< $num_items; $i++) {
-			$endAngle = 360*($this->data[$i]/$sum_items) + $startAngle;
+			$deltaAngle = ceil(($data[$i]/$sum_items)*360);
+			// var_dump($deltaAngle);
+
 			$color = imagecolorallocate($this->canvas, $this->pieColors[$i]["r"],$this->pieColors[$i]["g"],
 				$this->pieColors[$i]["b"]);
 			imagefilledarc($this->canvas, $cx, $cy, $pieWidth, $pieHeight,
-			 $startAngle, $endAngle, $color, IMG_ARC_PIE);
+			 $startAngle, $startAngle + $deltaAngle, $color, IMG_ARC_PIE);
 
-			$startAngle += $endAngle;
+			$startAngle += $deltaAngle;
+
+			// $x = (($cx + $pieWidth/4) * cos($startAngle/2) - ($cy + $pieHeight/4)*sin($startAngle/2));
+			// $y = (($cx + $pieWidth/4) * sin($startAngle/2) + ($cy + $pieHeight/4)*cos($startAngle/2));
+			// imagestring($this->canvas, 5, $x, $y, ceil(($data[$i]/$sum_items)*100)." %", $percentageTextColor);
 		}
 
 

@@ -17,7 +17,19 @@ class BarChart {
 		if (isset($this->data)) {
 			$this->drawChart();
 		}
+
 		imagepng($this->canvas);
+		
+	}
+
+	public function save($path) {
+		$this->refreshPlot();
+		if (isset($this->data)) {
+			$this->drawChart();
+		}
+
+		imagepng($this->canvas, $path);
+		
 	}
 
 	private function refreshPlot(){
