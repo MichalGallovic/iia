@@ -19,6 +19,10 @@
       <a class="navbar-brand" href="#">IIA Zadanie 2</a>
     </div>
 
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Michal Gallovič</a></li>
+      </ul>
+
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       
