@@ -1,8 +1,10 @@
-<?php
+<?php namespace IIA;
 /*
 * Copyright (c) 2014 All Rights Reserved
 * author: Michal Gallovic
 */
+require('BarChart.php');
+require('PieChart.php');
 
 class ChartMaker {
 
@@ -15,7 +17,7 @@ class ChartMaker {
 		"labelColor"		=>	["r"=>0,"g"=>0,"b"=>0], //default black
 		"labelXText"		=>	"axis x",
 		"labelYText"		=>	"axis y",
-		"titleText"				=>	"Graph",
+		"titleText"			=>	"Graph",
 		"titleColor"		=>	["r"=>0,"g"=>0,"b"=>0],
 		"backgroundColor"	=>	["r"=>100,"g"=>100,"b"=>100], //default gray,
 		"columnPadding"		=>	5,
@@ -24,11 +26,12 @@ class ChartMaker {
 		"marginTop"			=>	70,
 		"marginRight"		=>	50,
 		"columnColor"		=>	["r"=>0,"g"=>255,"b"=>0],
-		"columnLabelColor"	=>	["r"=>0,"g"=>0,"b"=>0]
+		"columnLabelColor"	=>	["r"=>0,"g"=>0,"b"=>0],
+		"legendWidth"		=>	100
 	];
 
 	//image
-	private $canvas;
+	// private $canvas;
 	private $data;
 	private $columnLabels;
 
@@ -173,95 +176,22 @@ class ChartMaker {
 		}
 	}
 
-
-
-	private function refreshPlot(){
-		//recreate image canvas
-		$this->canvas = imagecreate($this->properties["width"], $this->properties["height"]);
-		$this->drawBackground();
-		$this->drawLabels();
-		$this->drawTitle();
+	public function setLegendWidth($width) {
+		if (is_numeric($width)) {
+			$this->properties["legendWidth"] = $width;
+		} else {
+			throw new Exception("Legend width must be in numeric format");
+		}
 	}
-
-	private function drawBackground(){
-		//draw background
-		$backgroundColor = imagecolorallocate($this->canvas, $this->properties["backgroundColor"]["r"],
-		$this->properties["backgroundColor"]["g"], $this->properties["backgroundColor"]["b"]);
-		imagefilledrectangle($this->canvas, 0, 0, $this->properties["width"], $this->properties["height"], $backgroundColor);
-	}
-
-	private function drawLabels() {
-		//draw Label X and Y
-		$length = strlen($this->properties["labelXText"]);
-		$color = imagecolorallocate($this->canvas, $this->properties["labelColor"]["r"],
-		$this->properties["labelColor"]["g"], $this->properties["labelColor"]["b"]);
-		imagestring($this->canvas, 5, (($this->properties["width"]/2)-($length*5)), $this->properties["height"]-30, $this->properties["labelXText"], $color);
-		imagestringup($this->canvas, 5, 10, (($this->properties["height"]/2)+($length*5)), $this->properties["labelYText"], $color);
-	}
-
-	private function drawTitle(){
-		$length = strlen($this->properties["titleText"]);
-		$color = imagecolorallocate($this->canvas, $this->properties["titleColor"]["r"],
-		$this->properties["titleColor"]["g"], $this->properties["titleColor"]["b"]);
-		imagestring($this->canvas, 5, (($this->properties["width"]/2)-($length*5)),
-		 20, $this->properties["titleText"], $color);
-	}
-
 
 	public function plotBarChart(){
-		$this->refreshPlot();
-		if (isset($this->data)) {
-			$this->drawBarChart();
-		}
-		imagepng($this->canvas);
+		$chart = new BarChart($this->data, $this->columnLabels, $this->properties);
+		$chart->plot();
 	}
 
-	private function drawBarChart(){
-		
-		$max_value = max($this->data);
-		$marginLeft = $this->properties["marginLeft"];
-		$marginBottom = $this->properties["marginBottom"];
-		$marginTop = $this->properties["marginTop"];
-		$marginRight = $this->properties["marginRight"];
-		$padding = $this->properties["columnPadding"];
-		$width = $this->properties["width"];
-		$height = $this->properties["height"];
-
-		$columns = count($this->data);
-		$column_width = ($width-$marginLeft-$marginRight)/$columns;
-
-		$columnColor = imagecolorallocate($this->canvas, $this->properties["columnColor"]["r"],
-			$this->properties["columnColor"]["g"],$this->properties["columnColor"]["b"]);
-		$columnLabelColor = imagecolorallocate($this->canvas, $this->properties["columnLabelColor"]["r"],
-			$this->properties["columnLabelColor"]["g"],$this->properties["columnLabelColor"]["b"]);
-
-		for ($i=0; $i < $columns; $i++) { 
-
-			$column_height = ($height - $marginBottom - $marginTop) * ($this->data[$i]/$max_value);
-			
-
-			$x1 = $i*$column_width + $marginLeft;
-			$y1 = $height - $marginBottom;
-			$x2 = ($i+1)*$column_width + $marginLeft - $padding;
-			$y2 = $height - $marginBottom - $column_height;
-
-			$columnCenterX = $x2 - ($x2-$x1)/2;
-			$columnCenterYBottom = $y1 +10;
-			$columnCenterYTop = $y2 - 20;
-			imagefilledrectangle($this->canvas, $x1, $y1, $x2, $y2, $columnColor);
-
-			$columnLabel = "";
-			if (isset($this->columnLabels[$i])) {
-				$columnLabel = $this->columnLabels[$i];
-			}
-			imagestring($this->canvas, 3, $columnCenterX, $columnCenterYBottom, $columnLabel, $columnLabelColor);
-			$length = strlen($this->data[$i]);
-			imagestring($this->canvas, 3, $columnCenterX-($length*3), $columnCenterYTop, $this->data[$i], $columnLabelColor);
-
-		}
-
+	public function plotPieChart(){
+		$chart = new PieChart($this->data, $this->columnLabels, $this->properties);
+		$chart->plot();
 	}
-
-
 
 }
