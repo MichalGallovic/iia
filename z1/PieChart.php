@@ -2,16 +2,15 @@
 
 require('colorhelpers.php');
 
-class PieChart {
-	private $data;
-	private $columnLabels;
-	private $properties;
+class PieChart extends ChartMaker{
+
 	private $canvas;
 	private $pieColors;
 
 
 	public function __construct($data, $columnLabels, $properties) {
-		$this->data = $data;
+		parent::__construct($properties["width"],$properties["height"],$data,$columnLabels);
+
 		$this->columnLabels = $columnLabels;
 		$this->properties = $properties;
 		$this->pieColors = [];

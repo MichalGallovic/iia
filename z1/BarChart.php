@@ -1,14 +1,17 @@
 <?php namespace IIA;
 
-class BarChart {
-	private $data;
-	private $columnLabels;
-	private $properties;
+
+
+class BarChart extends ChartMaker{
+	// private $data;
+	// private $columnLabels;
+	// private $properties;
 	private $canvas;
 
-	public function __construct($data, $columnLabels, $properties) {
-		$this->data = $data;
-		$this->columnLabels = $columnLabels;
+	public function __construct($properties,$data,$columnLabel) {
+		parent::__construct($properties["width"],$properties["height"],$data,$columnLabel);
+		// $this->data = $data;
+		// $this->columnLabels = $columnLabels;
 		$this->properties = $properties;
 	}
 

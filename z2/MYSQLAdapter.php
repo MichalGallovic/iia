@@ -17,6 +17,6 @@ class MYSQLAdapter extends DbConnect{
 	}
 
 	public function findAll($table) {
-		return $this->mysqli->query("SELECT * FROM".$table);
+		return $this->mysqli->query("SELECT * FROM ".$table);
 	}
 }

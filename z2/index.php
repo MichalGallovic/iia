@@ -12,4 +12,6 @@ $db = new DbConnect($db_settings['type'],
 
 $mysql = $db->getDbInstance();
 
-var_dump($mysql->findAll("osoby"));
+foreach ($mysql->findAll("osoby") as $item) {
+	echo $item['name'];
+}

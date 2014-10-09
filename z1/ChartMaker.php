@@ -11,7 +11,7 @@ class ChartMaker {
 	// gd looks like state machine, so after changing any property
 	// it needs to be recreated
 
-	private $properties = [
+	protected $properties = [
 		"width"				=>	200,
 		"height"			=>	200,
 		"labelColor"		=>	["r"=>0,"g"=>0,"b"=>0], //default black
@@ -32,9 +32,9 @@ class ChartMaker {
 	];
 
 	//image
-	// private $canvas;
-	private $data;
-	private $columnLabels;
+	// protected $canvas;
+	protected $data;
+	protected $columnLabels;
 
 	public function __construct($width, $height,$data = null,$columnLabel = null) {
 		if ($width >= 200) {
@@ -196,7 +196,8 @@ class ChartMaker {
 	}
 
 	public function plotBarChart(){
-		$chart = new BarChart($this->data, $this->columnLabels, $this->properties);
+		$chart = new BarChart($this->properties, $this->data, $this->columnLabels);
+
 		$chart->plot();
 	}
 
