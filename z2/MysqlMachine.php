@@ -63,6 +63,9 @@ class MysqlMachine {
         return $result->fetch_object();
     }
 
-
+    public function deleteById($table, $id) {
+        $this->mysqli->query("DELETE FROM ".$table." WHERE id=".$id);
+        return ($this->mysqli->affected_rows > 0) ? true : false;
+    }
 
 }

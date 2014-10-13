@@ -1,5 +1,19 @@
 <?php
 require_once('MysqlMachine.php');
+session_start();
+
+$request_success = null;
+$message = "";
+
+if(isset($_SESSION["success"])) {
+    $request_success = $_SESSION["success"];
+}
+
+if(isset($_SESSION["message"])) {
+    $message = $_SESSION["message"];
+}
+
+
 $database = include "config.php";
 $mysql = new \IIA\MysqlMachine($database["db_name"],
         $database["host"],$database["username"],$database["password"]);
@@ -48,6 +62,15 @@ if($order == "asc") {
     <title>IIA Zadanie 2</title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
+    <style>
+        .erase {
+            color :red;
+            margin-right: 10px;
+        }
+        .edit {
+            color: black;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
@@ -75,13 +98,31 @@ if($order == "asc") {
 
 <div class="container">
     <h1>Olympijskí víťazi</h1>
-    <table class="table">
+
+<!--    FLASH MESSAGES-->
+    <?php if(isset($request_success)) : ?>
+        <?php if($request_success) : ?>
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <strong>Success!</strong> <?php echo $message ?>
+        </div>
+
+        <?php else : ?>
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <strong>Error!</strong> <?php echo $message ?>
+            </div>
+        <?php endif; ?>
+    <?php endif; ?>
+<!--    FLASH MESSAGES-->
+
+    <table class="table striped">
         <thead>
             <tr>
                 <th>Meno</th>
                 <th><a href="?sort=surname&order=<?php echo $order ?>">Priezvisko</a></th>
                 <th><a href="?sort=year&order=<?php echo $order ?>">Rok</a></th>
-                <th>>Mesto</th>
+                <th>Mesto</th>
                 <th>Krajina</th>
                 <th><a href="?sort=type&order=<?php echo $order ?>">Typ</a></th>
                 <th>Disciplína</th>
@@ -93,23 +134,38 @@ if($order == "asc") {
             foreach($result as $osoba) {
                 echo "<tr>";
                     foreach($osoba as $name => $column) {
-                        if($name != "id")
-                        echo "<td>".$column."</td>";
+
+                        switch($name) {
+                            case "id":
+                                break;
+                            case "name":
+                                echo "<td><a href='detail.php?id=$osoba->id'>$column</td></a>";
+                            default:
+                                echo "<td>" . $column . "</td>";
+                                break;
+                        }
+
                     }
-                echo "<td><a href='?delete.php&id=$osoba->id'><i class='fa fa-close fa-2x'></i></a>"."</td>";
+                echo "<td>";
+                echo "<a class='erase' href='delete.php?id=$osoba->id'><i class='fa fa-close fa-2x'></i></a>";
+                echo "<a  class='edit' href='edit.php?&id=$osoba->id'><i class='fa fa-edit fa-2x'></i></a>";
+                echo "</td>";
                 echo "</tr>";
             }
         ?>
         </tbody>
     </table>
 </div>
-
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
 </html>
 
 
-
+<?php
+unset($_SESSION["message"]);
+unset($_SESSION["success"]);
+?>
 
 
 
