@@ -1,7 +1,6 @@
 <?php
 
-$db_settings = [
-	"type"			=>	"mysql",
+return [
 	"host"			=>	"localhost",
 	"username"		=>	"root",
 	"password"		=>	"root",
