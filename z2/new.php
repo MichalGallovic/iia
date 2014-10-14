@@ -2,6 +2,11 @@
 require_once("redirect.php");
 require_once('MysqlMachine.php');
 require_once('helpers.php');
+require_once("Auth.php");
+session_start();
+\IIA\Auth::isLoggedIn();
+
+
 $database = include "config.php";
 $mysql = new \IIA\MysqlMachine($database["db_name"],
     $database["host"],$database["username"],$database["password"]);
@@ -52,7 +57,7 @@ $mysql->close();
         </div>
 
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Michal Gallovič</a></li>
+            <li><a href="#">Admin</a></li>
         </ul>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

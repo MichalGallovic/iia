@@ -104,7 +104,7 @@ class MysqlMachine {
         $query = $query." (".$insertingWhat.") VALUES (".$insertingValues.")";
 
         $this->mysqli->query($query);
-        return empty($this->mysqli->error) ? true : false;
+        return $this->mysqli->insert_id;
     }
 
 

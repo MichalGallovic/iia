@@ -22,6 +22,13 @@ foreach($post as $key => $value) {
         $tmpArray = [substr($key,7)=>$value];
         $personData += $tmpArray;
     }
+
+}
+
+$personID = null;
+$personID = $mysql->insertInto("osoby", $personData);
+
+foreach($post as $key => $value) {
     //game info
     if(substr($key,0,11) == "umiestnenie") {
         $keyData = explode("-",$key);
@@ -29,13 +36,16 @@ foreach($post as $key => $value) {
             $gameData[$keyData[1]] += [$keyData[2] => $value];
         } else {
             $gameData += [$keyData[1] => [$keyData[2] => $value]];
+            $gameData[$keyData[1]] += ["id_person"=> $personID];
         }
 
     }
+
 }
 
-$personCreated = $mysql->insertInto("osoby", $personData);
-var_dump($gameData);
+
+
+
 $gameCreated = true;
 //creating games info
 foreach($gameData as $key => $gameSpecific) {
@@ -43,7 +53,7 @@ foreach($gameData as $key => $gameSpecific) {
 
 }
 
-if($gameCreated && $personCreated) {
+if($gameCreated && isset($personID)) {
     $_SESSION["success"] = true;
     $_SESSION["message"] = "Data were created successfully!";
     movePage(200,"/z2");

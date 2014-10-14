@@ -38,7 +38,7 @@ foreach($post as $key => $value) {
     }
 }
 
-$mysql->close();
+
 
 $personUpdate = $mysql->updateById("osoby",$personID,$personData);
 $gameUpdate = true;
@@ -47,7 +47,7 @@ foreach($gameData as $key => $gameSpecific) {
     $gameUpdate = $mysql->updateById("umiestnenia",$key,$gameSpecific);
 
 }
-
+$mysql->close();
 if($personUpdate && $gameUpdate) {
     $_SESSION["success"] = true;
     $_SESSION["message"] = "Person data were updated successfully!";

@@ -1,6 +1,9 @@
 <?php
 require_once('MysqlMachine.php');
+require_once("Auth.php");
 session_start();
+
+\IIA\Auth::isLoggedIn();
 
 $request_success = null;
 $message = "";
@@ -12,6 +15,7 @@ if(isset($_SESSION["success"])) {
 if(isset($_SESSION["message"])) {
     $message = $_SESSION["message"];
 }
+
 
 
 $database = include "config.php";
@@ -89,7 +93,8 @@ $mysql->close();
         </div>
 
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Michal Gallovič</a></li>
+            <li><a href="#">Admin</a></li>
+            <li><a href="logout.php">Logout</a></li>
         </ul>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
