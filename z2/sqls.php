@@ -48,3 +48,10 @@ FOREIGN KEY (id_oh)
 REFERENCES oh(id)
 ON DELETE CASCADE;
 
+
+// UPDATES
+
+UPDATE osoby
+SET name = "Elena"
+WHERE id = 3
+

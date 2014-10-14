@@ -139,7 +139,8 @@ if($order == "asc") {
                             case "id":
                                 break;
                             case "name":
-                                echo "<td><a href='detail.php?id=$osoba->id'>$column</td></a>";
+                                echo "<td><a href='show.php?id=$osoba->id'>$column</td></a>";
+                                break;
                             default:
                                 echo "<td>" . $column . "</td>";
                                 break;

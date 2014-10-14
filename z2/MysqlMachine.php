@@ -68,4 +68,26 @@ class MysqlMachine {
         return ($this->mysqli->affected_rows > 0) ? true : false;
     }
 
+    public function updateById($table, $id,$columns) {
+        $query = "UPDATE ".$table." SET ";
+        $columnNames = array_keys($columns);
+        for($i = 0; $i < count($columns); $i++) {
+
+            if($i == count($columns)-1) {
+                $query = $query.$columnNames[$i]."='".$columns[$columnNames[$i]]."'";
+            } else {
+                $query = $query.$columnNames[$i]."='".$columns[$columnNames[$i]]."',";
+            }
+
+        }
+        $query = $query." WHERE id=".$id;
+
+        $this->mysqli->query($query);
+        return empty($this->mysqli->error) ? true : false;
+    }
+
+    public function close() {
+        $this->mysqli->close();
+    }
+
 }

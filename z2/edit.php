@@ -8,19 +8,24 @@ $mysql = new \IIA\MysqlMachine($database["db_name"],
     $database["host"],$database["username"],$database["password"]);
 
 $id = $_GET["id"];
-$query = "SELECT *
-          FROM umiestnenia
-          INNER JOIN osoby
-          ON umiestnenia.`id_person` = osoby.`id`
-          INNER JOIN oh
-          ON umiestnenia.`id_oh` = oh.`id`
-          WHERE `id_person`=".$id;
+$query = "SELECT u.`id`, u.`id_person`, u.`id_oh`, u.`place`, u.`discipline`,
+		os.`name`, os.`surname`, os.`birthDay`, os.`birthPlace`, os.`birthCountry`, os.`deathDay`, os.`deathPlace`, os.`deathCountry`,
+		oh.`type`, oh.`year`,oh.`city`, oh.`country`
+          FROM umiestnenia as u
+          INNER JOIN osoby as os
+          ON u.`id_person` = os.`id`
+          INNER JOIN oh as oh
+          ON u.`id_oh` = oh.`id`
+          WHERE `id_person`=$id";
+
 $result = $mysql->select($query);
+
 $person = $result[0];
 
 $query = "SELECT * FROM oh";
 $olympicgames = $mysql->select($query);
 
+$mysql->close();
 ?>
 
 <!doctype html>
@@ -70,10 +75,11 @@ $olympicgames = $mysql->select($query);
     <hr/>
     <h4>Person info</h4>
     <form class="form-horizontal" role="form" method="post" action="update.php">
+        <input type="hidden" value="<?php echo $person->id_person?>" name="person_id"/>
         <div class="form-group">
             <label class="col-sm-2 control-label">Meno</label>
             <div class="col-sm-10">
-                <input name="name" type="text" class="form-control"
+                <input name="person-name" type="text" class="form-control"
                        value="<?php echo $person->name?>"
                     >
             </div>
@@ -81,7 +87,7 @@ $olympicgames = $mysql->select($query);
         <div class="form-group">
             <label class="col-sm-2 control-label">Priezvisko</label>
             <div class="col-sm-10">
-                <input name="surname" type="text" class="form-control"
+                <input name="person-surname" type="text" class="form-control"
                        value="<?php echo $person->surname?>"
                     >
             </div>
@@ -89,7 +95,7 @@ $olympicgames = $mysql->select($query);
         <div class="form-group">
             <label class="col-sm-2 control-label">Dátum narodenia</label>
             <div class="col-sm-10">
-                <input name="birth-day" type="text" class="form-control"
+                <input name="person-birthDay" type="text" class="form-control"
                        value="<?php echo $person->birthDay?>"
                     >
             </div>
@@ -97,7 +103,7 @@ $olympicgames = $mysql->select($query);
         <div class="form-group">
             <label class="col-sm-2 control-label">Miesto narodenia</label>
             <div class="col-sm-10">
-                <input name="birth-place" type="text" class="form-control"
+                <input name="person-birthPlace" type="text" class="form-control"
                        value="<?php echo $person->birthPlace?>"
                     >
             </div>
@@ -105,7 +111,7 @@ $olympicgames = $mysql->select($query);
         <div class="form-group">
             <label class="col-sm-2 control-label">Krajina narodenia</label>
             <div class="col-sm-10">
-                <input name="birth-country" type="text" class="form-control"
+                <input name="person-birthCountry" type="text" class="form-control"
                        value="<?php echo $person->birthCountry?>"
                     >
             </div>
@@ -113,7 +119,7 @@ $olympicgames = $mysql->select($query);
         <div class="form-group">
             <label class="col-sm-2 control-label">Dátum úmrtia</label>
             <div class="col-sm-10">
-                <input name="death-day" type="text" class="form-control"
+                <input name="person-deathDay" type="text" class="form-control"
                        value="<?php echo $person->deathDay?>"
                     >
             </div>
@@ -121,7 +127,7 @@ $olympicgames = $mysql->select($query);
         <div class="form-group">
             <label class="col-sm-2 control-label">Miesto úmrtia</label>
             <div class="col-sm-10">
-                <input name="death-place" type="text" class="form-control"
+                <input name="person-deathPlace" type="text" class="form-control"
                        value="<?php echo $person->deathPlace?>"
                     >
             </div>
@@ -129,7 +135,7 @@ $olympicgames = $mysql->select($query);
         <div class="form-group">
             <label class="col-sm-2 control-label">Krajina úmrtia</label>
             <div class="col-sm-10">
-                <input name="death-country" type="text" class="form-control"
+                <input name="person-deathCountry" type="text" class="form-control"
                        value="<?php echo $person->deathCountry?>"
                     >
             </div>
@@ -138,18 +144,20 @@ $olympicgames = $mysql->select($query);
         <hr/>
         <h4>Olympics info</h4>
         <?php foreach($result as $item) :?>
+            <?php $gameLabel = "umiestnenie-".$item->id."-"; ?>
         <div class="form-group">
             <label class="col-sm-2 control-label">Miesto</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control"
+                <input name="<?php echo $gameLabel."place"?>" type="text" class="form-control"
                        value="<?php echo $item->place?>"
                     >
+
             </div>
         </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Disciplína</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control"
+                    <input name="<?php echo $gameLabel."discipline"?>" type="text" class="form-control"
                            value="<?php echo $item->discipline?>"
                         >
                 </div>
@@ -157,13 +165,13 @@ $olympicgames = $mysql->select($query);
             <div class="form-group">
                 <label class="col-sm-2 control-label">Olympijské hry</label>
                 <div class="col-sm-10">
-                    <select class="selectpicker" data-live-search="true">
+                    <select name="<?php echo $gameLabel."id_oh"?>" class="selectpicker" data-live-search="true">
 
                         <?php foreach($olympicgames as $game) :?>
                             <?php if($game->id == $item->id_oh) :?>
-                            <option selected><?php echo $game->type.", ".$game->year.", ".$game->city.", ".$game->country; ?></option>
+                            <option value="<?php echo $game->id ?>" selected><?php echo $game->type.", ".$game->year.", ".$game->city.", ".$game->country; ?></option>
                             <?php else : ?>
-                            <option><?php echo $game->type.", ".$game->year.", ".$game->city.", ".$game->country; ?></option>
+                            <option value="<?php echo $game->id ?>"><?php echo $game->type.", ".$game->year.", ".$game->city.", ".$game->country; ?></option>
                             <?php endif; ?>
                         <?php endforeach;?>
                     </select>
