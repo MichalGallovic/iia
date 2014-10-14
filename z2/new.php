@@ -163,8 +163,8 @@ $mysql->close();
 
         $("#add-result").click(function(){
             newGameCounter++;
-            var selectHTML = "<select name='umiestnenie_"+newGameCounter+"_id-oh' class='selectpicker' data-live-search='true'>"+optionsHTML+"</select>";
-            var html = "<div class='form-group'> <label class='col-sm-2 control-label'>Olympijské hry</label> <div class='col-sm-10'> "+selectHTML+" </div> </div> <div class='form-group'> <label class='col-sm-2 control-label'>Miesto</label> <div class='col-sm-10'> <input name='umiestnenie_"+newGameCounter+"_place' class='form-control' type='text'/> </div> </div> <div class='form-group'> <label class='col-sm-2 control-label'>Disciplína</label> <div class='col-sm-10'> <input name='umiestnenie_"+newGameCounter+"_discipline' class='form-control' type='text'/> </div> </div><hr>";
+            var selectHTML = "<select name='umiestnenie-"+newGameCounter+"-id_oh' class='selectpicker' data-live-search='true'>"+optionsHTML+"</select>";
+            var html = "<div class='form-group'> <label class='col-sm-2 control-label'>Olympijské hry</label> <div class='col-sm-10'> "+selectHTML+" </div> </div> <div class='form-group'> <label class='col-sm-2 control-label'>Miesto</label> <div class='col-sm-10'> <input name='umiestnenie-"+newGameCounter+"-place' class='form-control' type='text'/> </div> </div> <div class='form-group'> <label class='col-sm-2 control-label'>Disciplína</label> <div class='col-sm-10'> <input name='umiestnenie-"+newGameCounter+"-discipline' class='form-control' type='text'/> </div> </div><hr>";
             $('#olympic-container').append(html);
             $(".selectpicker").selectpicker();
 

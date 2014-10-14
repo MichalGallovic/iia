@@ -13,6 +13,7 @@ $personData = [];
 $gameData = [];
 $umiestnenieID = "";
 $personID = "";
+
 //parsing
 foreach($post as $key => $value) {
     //person info

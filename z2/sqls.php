@@ -81,3 +81,6 @@ WHERE id = 3
     </div>
 </div>
 
+INSERT INTO osoby (name, surname, birthDay, birthPlace, birthCountry, deathDay, deathPlace, deathCountry)
+VALUES ('Sandor', 'Pelko','1982-03-07','Trnava','Slovakia','1982-03-07','Trnava','Slovakia')
+

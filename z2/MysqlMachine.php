@@ -86,6 +86,28 @@ class MysqlMachine {
         return empty($this->mysqli->error) ? true : false;
     }
 
+    public function insertInto($table, $columns) {
+        $query = "INSERT into ".$table;
+        $columnNames = array_keys($columns);
+        $insertingWhat = "";
+        $insertingValues = "";
+        for($i = 0; $i < count($columns); $i++) {
+
+            if($i == count($columns)-1) {
+                $insertingWhat = $insertingWhat.$columnNames[$i];
+                $insertingValues = $insertingValues."'".$columns[$columnNames[$i]]."'";
+            } else {
+                $insertingWhat = $insertingWhat.$columnNames[$i].", ";
+                $insertingValues = $insertingValues."'".$columns[$columnNames[$i]]."', ";
+            }
+        }
+        $query = $query." (".$insertingWhat.") VALUES (".$insertingValues.")";
+
+        $this->mysqli->query($query);
+        return empty($this->mysqli->error) ? true : false;
+    }
+
+
     public function close() {
         $this->mysqli->close();
     }
