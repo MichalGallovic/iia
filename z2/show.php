@@ -20,7 +20,7 @@ $query = "SELECT u.`id`, u.`id_person`, u.`id_oh`, u.`place`, u.`discipline`,
 $result = $mysql->select($query);
 
 $person = $result[0];
-
+$mysql->close();
 ?>
 <!doctype html>
 <html lang="sk">
@@ -38,6 +38,14 @@ $person = $result[0];
         .edit {
             color: black;
         }
+        .panel-body .row {
+            margin-top: 15px;
+        }
+        .panel-body .row:first-child {
+            margin-top: 0;
+        }
+
+
     </style>
 </head>
 <body>
@@ -63,3 +71,55 @@ $person = $result[0];
         </div><!-- /.navbar-collapse -->
     </div>
 </nav>
+
+<div class="container">
+    <h1>Detail športovca:</h1>
+    <div style="margin-top: 40px;" class="col-sm-6 col-sm-offset-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Person info: <?php echo $person->name." ".$person->surname ?></h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-4"><strong>Dátum narodenia</strong></div>
+                    <div class="col-sm-8"><span><?php echo $person->birthDay ?></span></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4"><strong>Mesto narodenia</strong></div>
+                    <div class="col-sm-8"><span><?php echo $person->birthPlace ?></span></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4"><strong>Krajina narodenia</strong></div>
+                    <div class="col-sm-8"><span><?php echo $person->birthCountry ?></span></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4"><strong>Dátum úmrtia</strong></div>
+                    <div class="col-sm-8"><span><?php echo $person->deathDay ?></span></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4"><strong>Mesto úmrtia</strong></div>
+                    <div class="col-sm-8"><span><?php echo $person->deathPlace ?></span></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4"><strong>Krajina úmrtia</strong></div>
+                    <div class="col-sm-8"><span><?php echo $person->deathCountry ?></span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Olympic games: <?php echo $person->name." ".$person->surname ?></h3>
+            </div>
+            <div class="panel-body">
+                <?php foreach($result as $game) :?>
+                <div class="row">
+                    <div class="col-sm-12"><strong><?php echo $game->place ?> place</strong>, at <?php echo $game->type." ".$game->year.", ".$game->city." ".$game->country." - ".$game->discipline; ?></div>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

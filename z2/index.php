@@ -53,6 +53,8 @@ if($order == "asc") {
     $order = "asc";
 }
 
+$mysql->close();
+
 ?>
 
 <!doctype html>
@@ -97,7 +99,7 @@ if($order == "asc") {
 </nav>
 
 <div class="container">
-    <h1>Olympijskí víťazi</h1>
+    <h1 style="display:inline-block;">Olympijskí víťazi</h1> <a style="margin-bottom: 15px; margin-left: 25px; "class="btn btn-success" href="new.php">Nový olympionik</a>
 
 <!--    FLASH MESSAGES-->
     <?php if(isset($request_success)) : ?>

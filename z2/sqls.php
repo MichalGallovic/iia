@@ -55,3 +55,29 @@ UPDATE osoby
 SET name = "Elena"
 WHERE id = 3
 
+
+<?php foreach($olympicgames as $game) :?>
+    <option value="<?php echo $game->id ?>"><?php echo $game->type.", ".$game->year.", ".$game->city.", ".$game->country; ?></option>
+<?php endforeach;?>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label">Olympijské hry</label>
+    <div class="col-sm-10">
+        <select name="umiestnenie_oh" class="selectpicker" data-live-search="true">
+
+        </select>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Miesto</label>
+    <div class="col-sm-10">
+        <input class="form-control" type="text"/>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Disciplína</label>
+    <div class="col-sm-10">
+        <input class="form-control" type="text"/>
+    </div>
+</div>
+

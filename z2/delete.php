@@ -7,6 +7,7 @@ $mysql = new \IIA\MysqlMachine($database["db_name"],
     $database["host"],$database["username"],$database["password"]);
 
 $id = $_GET["id"];
+
 if($mysql->deleteById("osoby",$id)) {
     $_SESSION["success"] = true;
     $_SESSION["message"] = "Person deleted successfully!";
@@ -18,3 +19,4 @@ if($mysql->deleteById("osoby",$id)) {
 }
 
 
+$mysql->close();

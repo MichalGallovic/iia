@@ -37,7 +37,8 @@ foreach($post as $key => $value) {
     }
 }
 
-var_dump($gameData);
+$mysql->close();
+
 $personUpdate = $mysql->updateById("osoby",$personID,$personData);
 $gameUpdate = true;
 //updating games info
@@ -45,7 +46,7 @@ foreach($gameData as $key => $gameSpecific) {
     $gameUpdate = $mysql->updateById("umiestnenia",$key,$gameSpecific);
 
 }
-var_dump($personUpdate, $gameUpdate);
+
 if($personUpdate && $gameUpdate) {
     $_SESSION["success"] = true;
     $_SESSION["message"] = "Person data were updated successfully!";
@@ -55,3 +56,4 @@ if($personUpdate && $gameUpdate) {
     $_SESSION["message"] = "Person data were not updated!";
     movePage(400,"/z2");
 }
+
