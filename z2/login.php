@@ -43,7 +43,6 @@
         </div><!-- /.navbar-collapse -->
     </div>
 </nav>
-<body>
     <div class="container">
         <div class="col-sm-6 col-sm-offset-3">
             <div class="well">

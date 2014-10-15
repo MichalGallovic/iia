@@ -2,7 +2,7 @@
 
 return [
 	"host"			=>	"localhost",
-	"username"		=>	"root",
-	"password"		=>	"root",
-	"db_name"		=>	"iiadb_z2"
+	"username"		=>	"michal",
+	"password"		=>	"michal",
+	"db_name"		=>	"iiadb"
 ];
