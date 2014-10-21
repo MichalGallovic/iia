@@ -1,0 +1,23 @@
+$ldaprdn  = 'uid=zakova, ou=People, DC=stuba, DC=sk';   
+$ldap_server = 'ldap.stuba.sk';
+
+ldap_unbind($ldapconn);
+
+$results=ldap_search($ldapconn,$dn,"surname=Such*",array("givenname","employeetype","surname","mail","faculty","cn"));
+$info=ldap_get_entries($ldapconn,$results);
+print_r($info);
+
+
+$i=0;
+while ($i <= 10) {
+echo $info[$i]['cn'][0]."<br>";
+echo $info[$i]['mail'][0]."<br>";
+echo $info[$i]['employeetype'][0]."<br>";
+echo $info[$i]['faculty'][0]."<br><br>";
+$i++; 
+}
+
+
+
+foreach ($info[0]["mail"] as $value) 
+    echo "$value<br />\n";

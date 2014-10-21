@@ -1,0 +1,11 @@
+echo "<br /><br />\$_REQUEST:  ";
+print_r($_REQUEST);
+echo "<br /><br />";
+echo "session_id(): ".session_id()."<br />";
+echo "\$_GET:     ".$_GET['PHPSESSID']."<br />";
+echo "\$_COOKIE:  ".$_COOKIE['PHPSESSID']."<br />";
+
+
+
+
+session_id($_GET['PHPSESSID']);
