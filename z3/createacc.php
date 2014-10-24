@@ -30,8 +30,8 @@ $personData += $firstname += $lastname += $username += $password;
 $userID = $mysql->insertInto("users", $personData);
 
 if(isset($userID)) {
-    $_SESSION["success"] = true;
-    $_SESSION["message"] = "Your account was created successfully!";
+    // $_SESSION["success"] = true;
+    // $_SESSION["message"] = "Your account was created successfully!";
     $_SESSION["username"] = $username["username"];
     $_SESSION["fullname"] = $firstname["firstname"] . " " . $lastname["lastname"];
     \IIA\Auth::logIn();
@@ -43,8 +43,8 @@ if(isset($userID)) {
     $mysql->insertInto("login_times",$loginData);
     \IIA\movePage(200,"/z3/dashboard.php");
 } else {
-    $_SESSION["success"] = false;
-    $_SESSION["message"] = "There was a server error. Please Try again in a minute!";
+    // $_SESSION["success"] = false;
+    // $_SESSION["message"] = "There was a server error. Please Try again in a minute!";
     \IIA\movePage(500,"/z3/register.php");
 }
 

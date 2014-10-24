@@ -40,6 +40,8 @@ if($ldapconn) {
         $mysql->insertInto("login_times",$loginData);
         \IIA\movePage(200,"/z3/dashboard.php");
     } else {
+        $_SESSION["success"] = false;
+        $_SESSION["message"] = "Bad username or password";
         \IIA\movePage(200,"/z3/ldap.php");
     }
 }
