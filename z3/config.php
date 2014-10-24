@@ -1,7 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: husticik
- * Date: 21/10/14
- * Time: 21:28
- */ 
+
+return [
+    "host"			=>	"localhost",
+    "username"		=>	"root",
+    "password"		=>	"lostebif",
+    "db_name"		=>	"iiadb_z3"
+];

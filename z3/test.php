@@ -1,7 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: husticik
- * Date: 21/10/14
- * Time: 22:26
- */ 
+date_default_timezone_set('Europe/Bratislava');
+$date = date('m/d/Y h:i:s a', time());
+
+var_dump($date);

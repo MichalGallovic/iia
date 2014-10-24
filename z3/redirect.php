@@ -1,4 +1,4 @@
-<?php
+<?php namespace IIA;
 
 function movePage($num,$url){
     static $http = array (

@@ -1,7 +1,24 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: husticik
- * Date: 21/10/14
- * Time: 15:53
- */ 
+<?php namespace IIA;
+
+
+class Auth {
+
+    public static function isLoggedIn() {
+        if(isset($_SESSION["isLoggedIn"])) {
+            if($_SESSION["isLoggedIn"]) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static function logIn() {
+        $_SESSION["isLoggedIn"] = true;
+    }
+
+    public static function logout() {
+        unset($_SESSION["isLoggedIn"]);
+    }
+
+}
