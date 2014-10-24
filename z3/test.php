@@ -1,5 +1,15 @@
 <?php
-date_default_timezone_set('Europe/Bratislava');
-$date = date('m/d/Y h:i:s a', time());
+function __autoload($class_name) {
+	$parts = explode('\\', $class_name);
+	var_dump($parts);
+	require_once end($parts) . '.php';
+}
 
-var_dump($date);
+
+
+use \IIA\Auth as Auth;
+use \IIA\Redirect as Redirect;
+
+Auth::logIn();
+
+Redirect::movePage(200,'/z3');

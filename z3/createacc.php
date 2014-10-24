@@ -3,6 +3,16 @@ session_start();
 require_once("redirect.php");
 require_once('MysqlMachine.php');
 require_once("Auth.php");
+
+require_once("App.php");
+use \IIA\App as App;
+$database;
+if(App::env() == "development") {
+    $database = include "config/development.php";
+} else {
+    $database = include "config/production.php";
+}
+
 date_default_timezone_set('Europe/Bratislava');
 
 $firstname = ["firstname" => $_POST["firstname"]];
@@ -11,7 +21,6 @@ $username = ["username" => $_POST["username"]];
 $password = ["password" => base64_encode($_POST["password"])];
 
 
-$database = include "config.php";
 $mysql = new \IIA\MysqlMachine($database["db_name"],
     $database["host"],$database["username"],$database["password"]);
 

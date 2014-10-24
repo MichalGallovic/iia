@@ -5,6 +5,17 @@ require_once("redirect.php");
 if(\IIA\Auth::isLoggedIn()) {
     \IIA\movePage(200,"/z3/dashboard.php");
 }
+$request_success = null;
+$message = "";
+
+if(isset($_SESSION["success"])) {
+    $request_success = $_SESSION["success"];
+}
+
+if(isset($_SESSION["message"])) {
+    $message = $_SESSION["message"];
+}
+
 ?>
 <!doctype html>
 <html lang="sk">
@@ -46,6 +57,24 @@ if(\IIA\Auth::isLoggedIn()) {
 <div class="container">
     <h1 class="text-center">Login with your Account</h1>
     <div class="col-sm-6 col-sm-offset-3">
+
+        <!--    FLASH MESSAGES-->
+    <?php if(isset($request_success)) : ?>
+        <?php if($request_success) : ?>
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <strong>Success!</strong> <?php echo $message ?>
+        </div>
+
+        <?php else : ?>
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <strong>Error!</strong> <?php echo $message ?>
+            </div>
+        <?php endif; ?>
+    <?php endif; ?>
+    <?php unset($_SESSION["message"]); unset($_SESSION["success"]); ?>
+<!--    FLASH MESSAGES-->
         <div class="well">
             <h4>Log in</h4>
             <form class="form-horizontal" role="form" method="post" action="authlogin.php">

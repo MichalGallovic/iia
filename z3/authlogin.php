@@ -4,11 +4,18 @@ session_start();
 require_once("redirect.php");
 require_once('MysqlMachine.php');
 require_once("Auth.php");
+require_once("App.php");
+use \IIA\App as App;
 date_default_timezone_set('Europe/Bratislava');
 
 $_SESSION["temporar_username"] = $_POST["username"];
 
-$database = include "config.php";
+$database;
+if(App::env() == "development") {
+    $database = include "config/development.php";
+} else {
+    $database = include "config/production.php";
+}
 $mysql = new \IIA\MysqlMachine($database["db_name"],
     $database["host"],$database["username"],$database["password"]);
 

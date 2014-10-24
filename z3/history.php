@@ -10,10 +10,19 @@ if(!Auth::isLoggedIn()) {
     \IIA\movePage(401,"/z3");
 }
 
+require_once("App.php");
+use \IIA\App as App;
+$database;
+if(App::env() == "development") {
+    $database = include "config/development.php";
+} else {
+    $database = include "config/production.php";
+}
+
 
 date_default_timezone_set('Europe/Bratislava');
 
-$database = include "config.php";
+
 $mysql = new \IIA\MysqlMachine($database["db_name"],
     $database["host"],$database["username"],$database["password"]);
 $query = "SELECT * FROM login_times;";
@@ -113,9 +122,9 @@ $total = count($login_times);
             </thead>
             <tbody>
             <tr>
-                <td><?php echo round(($ldap/$total)*100,2); ?></td>
-                <td><?php echo round(($google/$total)*100,2); ?></td>
-                <td><?php echo round(($registration/$total)*100,2); ?></td>
+                <td><?php echo round(($ldap/$total)*100,2); ?>%</td>
+                <td><?php echo round(($google/$total)*100,2); ?>%</td>
+                <td><?php echo round(($registration/$total)*100,2); ?>%</td>
             </tr>
             </tbody>
         </table>

@@ -1,10 +1,8 @@
 <?php
 session_start();
-set_include_path( get_include_path() . PATH_SEPARATOR . 'google/src' );
 require_once("redirect.php");
-require_once("Google/Client.php");
 require_once("Auth.php");
-
+require_once("google/autoload.php");
 use IIA\Auth as Auth;
 
 if(Auth::isLoggedIn()) {
