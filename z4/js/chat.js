@@ -2,7 +2,7 @@ var fireBaseRef = new Firebase("https://radiant-inferno-2509.firebaseio.com/");
 
 var userCounter = 0;
 var username;
-
+var loginTime = new Date();
 function persistUser(name) {
     var usersRef = fireBaseRef.child("users");
     var currentUserRef = usersRef.push({
@@ -103,7 +103,8 @@ fireBaseRef.child("messages").on("child_added", function(snapshot) {
     var sentBy = snapshot.val().username;
     var message = snapshot.val().message;
     var sentAt = moment(new Date(snapshot.val().sentAt)).format("h:mm");
-
-    $("<div/>",{class: "message-container"}).html('<strong>'+sentBy+'</strong><span class="text-muted"> ('+sentAt+')</span> '+message).appendTo($("#chat-container"));
-    $("#chat-container").scrollTop($("#chat-container").prop('scrollHeight'));
+    if(snapshot.val().sentAt >= loginTime) {
+        $("<div/>",{class: "message-container"}).html('<strong>'+sentBy+'</strong><span class="text-muted"> ('+sentAt+')</span> '+message).appendTo($("#chat-container"));
+        $("#chat-container").scrollTop($("#chat-container").prop('scrollHeight'));
+    }
 });
