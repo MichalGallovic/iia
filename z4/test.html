@@ -17,7 +17,7 @@
 	          dataType:    'json',
 	          contentType: 'application/x-www-form-urlencoded'
 	        }).done(function(data) {
-	        	// $("<span/>").html(data).appendTo($("#output"));
+	        	$("<span/>").text(data.username).appendTo($("#output"));
 	        	console.log(data);
 	        });
 		},1000);
