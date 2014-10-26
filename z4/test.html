@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="output"></div>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script>
+	$(document).ready(function() {
+
+		setInterval(function() {
+			$.ajax({
+	          url:         "refresh.php",
+	          type:        'GET',
+	          dataType:    'json',
+	          contentType: 'application/x-www-form-urlencoded'
+	        }).done(function(data) {
+	        	// $("<span/>").html(data).appendTo($("#output"));
+	        	console.log(data);
+	        });
+		},1000);
+	});
+	</script>
+</body>
+</html>

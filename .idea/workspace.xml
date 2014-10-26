@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9fc6ac7d-4fa9-4122-ba5c-830311bebfe0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/z4/js/chat.js" afterPath="$PROJECT_DIR$/z4/js/chat.js" />
-    </list>
+    <list default="true" id="9fc6ac7d-4fa9-4122-ba5c-830311bebfe0" name="Default" comment="" />
     <ignored path="web.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
