@@ -56,7 +56,7 @@
             <a class="navbar-brand" href="/z3">IIA Zadanie 4</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-          <li><button id="chat-logout" class="btn btn-danger navbar-btn">Logout</a></li>
+          <li><button id="chat-logout" class="btn btn-danger navbar-btn">Logout</button></li>
         </ul>
     </div>
 </nav>
