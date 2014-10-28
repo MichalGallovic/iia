@@ -4,10 +4,10 @@
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
-    <title>IIA Zadanie 2</title>
+    <title>IIA Zadanie 4</title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
-    <style>
+    <style type="text/css">
         .username-field {
           margin-top: 15px;
           text-align: center;
