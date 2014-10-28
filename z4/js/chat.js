@@ -3,6 +3,8 @@ var fireBaseRef = new Firebase("https://radiant-inferno-2509.firebaseio.com/");
 var userCounter = 0;
 var username;
 var loginTime = new Date();
+var logoutTimer;
+
 function persistUser(name) {
     var usersRef = fireBaseRef.child("users");
     var currentUserRef = usersRef.push({
@@ -33,21 +35,6 @@ $(document).ready(function() {
         username = makeUniqueUser(username, userNames);
     });
 });
-
-//$("#chat-login").click(function() {
-//    username = $("#username").val();
-//    var usersRef = fireBaseRef.child("users");
-//    usernameRef = usersRef.push({
-//        name: username
-//    });
-//    usernameRef.onDisconnect().remove();
-//
-//    $("#chat-window").show();
-//    var topNavbar = $("#top-navbar");
-//    topNavbar.empty();
-//    $("<div/>",{class:"username"}).html('<h3><span class="label label-default h3">'+username+'</span></h3>').appendTo(topNavbar);
-//    $("<button/>",{class:"btn btn-danger", id:"chat-logout"}).html('Logout').appendTo(topNavbar);
-//});
 
 $("#message-send").bind("click",function(event) {
     event.preventDefault();
@@ -82,6 +69,14 @@ $("#chat-logout").click(function() {
 $("#form").submit(function(event) {
     event.preventDefault();
     $("#message-send").trigger("click");
+});
+
+
+$(document).on("mousemove keydown click", function() {
+    clearTimeout(logoutTimer);
+    logoutTimer = setTimeout(function(){
+        location.href = "/z4/chat.php";
+    },1000 * 60 * 5);
 });
 
 fireBaseRef.child("users").on("child_added", function(snapshot) {
