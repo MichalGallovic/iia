@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/z3">IIA Zadanie 4</a>
+            <a class="navbar-brand" href="/z4">IIA Zadanie 4</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
           <li><button id="chat-logout" class="btn btn-danger navbar-btn">Logout</button></li>
