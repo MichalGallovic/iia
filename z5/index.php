@@ -30,7 +30,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/z3">IIA Zadanie 5</a>
+            <a class="navbar-brand" href="/z5">IIA Zadanie 5</a>
         </div>
 
         <ul class="nav navbar-nav navbar-right">
