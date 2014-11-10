@@ -14,6 +14,9 @@
         #error-message{
             display:none;
         }
+        .spinner {
+            width: 15px;
+        }
     </style>
 </head>
 <body>
@@ -111,8 +114,10 @@
                 </tbody>
             </table>
             <p id="loading" class="text-center space">
-                Loading your awesome data...
+                Loading your awesome data
+                <img class="spinner" src="spinner.GIF" alt=""/>
             </p>
+
         </div>
     </div>
 </div>
