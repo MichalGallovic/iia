@@ -40,17 +40,21 @@
         </div><!-- /.navbar-collapse -->
     </div>
 </nav>
-<div class="container">
+<div class="container text-center">
+    <h1>Vyhľadaj si ceny benzínu na základe PSČ</h1>
+    <div class="row">
+        <div class="col-sm-4 col-sm-offset-4 space">
+            <div id="error-message" class="alert alert-danger">
+                <p>
 
-    <div class="row text-center">
-        <h1>Vyhľadaj si ceny benzínu na základe PSČ</h1>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        
                 <form id="psc-form" action="find.php" method="post" class="space">
                     <div class="col-sm-4 col-sm-offset-2">
-                        <div id="error-message" class="alert alert-danger">
-                            <p>
-
-                            </p>
-                        </div>
                         <div class="form-group">
                             <input class="form-control text-center" id="psc" type="text" name="psc"/>
                         </div>
@@ -93,7 +97,7 @@
     </div>
     <div class="row space">
         <div class="col-sm-8 col-sm-offset-2">
-            <table class="table table-striped">
+            <table class="table table-striped" style="text-align: left;">
                 <thead>
                     <tr>
                         <th>Čerpacia stanica</th>
@@ -147,10 +151,13 @@
             $('#petrolRows').empty();
             $('#loading').show();
             $('#error-message').slideUp(200);
+
             event.preventDefault();
+
             var psc = $('#psc').val();
             var fuelType = $('#fuel-type').val();
             var petrolData = [];
+
             $.ajax({
                 type: "POST",
                 url: 'find.php',
