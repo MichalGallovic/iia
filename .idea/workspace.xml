@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9fc6ac7d-4fa9-4122-ba5c-830311bebfe0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/z5/find.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/z5/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/z5/redirect.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/z6/API.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/z6/Meniny.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/z6/MyAPI.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/z6/api.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/z6/handler.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/8751_gallovic_z4.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pisomka1.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
@@ -33,105 +37,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="find.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/z5/find.php">
+      <file leaf-file-name=".htaccess" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/z6/.htaccess">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.071428" vertical-offset="442" max-vertical-offset="2496">
-              <caret line="30" column="173" selection-start-line="30" selection-start-column="173" selection-end-line="30" selection-end-column="173" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="364">
+              <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test.php">
+      <file leaf-file-name="handler.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/z6/handler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="208">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.9285714" vertical-offset="0" max-vertical-offset="182">
+              <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="redirect.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/z4/redirect.php">
+      <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/z6/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.071428" vertical-offset="0" max-vertical-offset="1352">
-              <caret line="13" column="30" selection-start-line="0" selection-start-column="0" selection-end-line="46" selection-end-column="1" />
+            <state vertical-scroll-proportion="-1.8571428" vertical-offset="0" max-vertical-offset="494">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="redirect.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/z5/redirect.php">
+      <file leaf-file-name="API.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/z6/API.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-40.857143" vertical-offset="52" max-vertical-offset="1352">
-              <caret line="46" column="1" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
+            <state vertical-scroll-proportion="7.428571" vertical-offset="1820" max-vertical-offset="3016">
+              <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/z5/index.php">
+      <file leaf-file-name="MyAPI.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/z6/MyAPI.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5048544" vertical-offset="1014" max-vertical-offset="4628">
-              <caret line="53" column="3" selection-start-line="53" selection-start-column="3" selection-end-line="53" selection-end-column="3" />
+            <state vertical-scroll-proportion="-9.035714" vertical-offset="683" max-vertical-offset="1612">
+              <caret line="36" column="64" selection-start-line="36" selection-start-column="64" selection-end-line="36" selection-end-column="64" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/z2/show.php">
+      <file leaf-file-name="Meniny.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/z6/Meniny.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="72.57143" vertical-offset="2032" max-vertical-offset="3380">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1413287110000" expanded="true" signature="256:693" placeholder="SELECT u.`id..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/z2/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-40.857143" vertical-offset="2938" max-vertical-offset="4914">
-              <caret line="157" column="35" selection-start-line="157" selection-start-column="35" selection-end-line="157" selection-end-column="35" />
-              <folding>
-                <marker date="1413318414000" expanded="true" signature="479:802" placeholder="SELECT osoby..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/z4/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="260">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chat.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/z4/chat.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-61.035713" vertical-offset="2607" max-vertical-offset="4550">
-              <caret line="166" column="0" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="90" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/z3/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.7857144" vertical-offset="2262" max-vertical-offset="3432">
-              <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="122" selection-end-column="6" />
+            <state vertical-scroll-proportion="1.4892473" vertical-offset="582" max-vertical-offset="2964">
+              <caret line="65" column="26" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -156,7 +116,18 @@
         <option value="$PROJECT_DIR$/z5/redirect.php" />
         <option value="$PROJECT_DIR$/z4/chat.php" />
         <option value="$PROJECT_DIR$/z5/find.php" />
+        <option value="$PROJECT_DIR$/z5/helpers.php" />
         <option value="$PROJECT_DIR$/z5/index.php" />
+        <option value="$PROJECT_DIR$/z6/index.php" />
+        <option value="$PROJECT_DIR$/z6/MyAPI.class.php" />
+        <option value="$PROJECT_DIR$/API.class.php" />
+        <option value="$PROJECT_DIR$/.htaccess" />
+        <option value="$PROJECT_DIR$/z6/handler.php" />
+        <option value="$PROJECT_DIR$/z6/.htaccess" />
+        <option value="$PROJECT_DIR$/z6/api.php" />
+        <option value="$PROJECT_DIR$/z6/API.class.php" />
+        <option value="$PROJECT_DIR$/z6/MyAPI.php" />
+        <option value="$PROJECT_DIR$/z6/Meniny.php" />
       </list>
     </option>
   </component>
@@ -199,7 +170,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -228,35 +198,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="z5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="z4" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="z2" />
+              <option name="myItemId" value="z6" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -274,22 +216,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pisomka1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -298,7 +227,7 @@
     <property name="options.lastSelected" value="preferences.keymap" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="delete&#9;ACTION&#9;FileChooser.Delete&#10;rename&#9;ACTION&#9;RenameElement&#10;conf&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/config.php&#10;hi&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/history.php&#10;My&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/MysqlMachine.php&#10;crea&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/createacc.php&#10;reg&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/register.php&#10;regi&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/register.php&#10;logo&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/logout.php&#10;inde&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z2/index.php&#10;con&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/config.php&#10;auth&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/authldap.php&#10;hist&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/history.php&#10;create&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/createacc.php&#10;his&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/history.php&#10;das&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/dashboard.php&#10;dash&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/dashboard.php&#10;goog&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/googleoauth2callback.php&#10;regis&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/register.php&#10;copy&#9;ACTION&#9;EditorCopy&#10;move&#9;ACTION&#9;Move&#10;index&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z2/index.php" />
+    <property name="SearchEverywhereHistoryKey" value="index&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/web/z5/index.php&#10;help&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/web/z5/helpers.php&#10;find.&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/web/z5/find.php&#10;delete&#9;ACTION&#9;FileChooser.Delete&#10;rename&#9;ACTION&#9;RenameElement&#10;conf&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/config.php&#10;hi&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/history.php&#10;My&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/MysqlMachine.php&#10;crea&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/createacc.php&#10;reg&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/register.php&#10;regi&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/register.php&#10;logo&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/logout.php&#10;inde&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z2/index.php&#10;con&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/config.php&#10;auth&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/authldap.php&#10;hist&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/history.php&#10;create&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/createacc.php&#10;his&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/history.php&#10;das&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/dashboard.php&#10;dash&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/dashboard.php&#10;goog&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/googleoauth2callback.php&#10;regis&#9;FILE&#9;file:///Users/husticik/Documents/FEI/7semester/IIA/web/z3/register.php&#10;copy&#9;ACTION&#9;EditorCopy&#10;move&#9;ACTION&#9;Move" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
@@ -324,15 +253,15 @@
       <BehatRunner />
       <method />
     </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
       <tasks />
       <pass-parent-env-vars>false</pass-parent-env-vars>
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <list size="0" />
@@ -413,9 +342,9 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24303621" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="UnknownFeatures">
@@ -444,62 +373,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/z3/googleoauth2callback.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="260" max-vertical-offset="2340">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/z3/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3068" max-vertical-offset="3484">
-          <caret line="118" column="54" selection-start-line="118" selection-start-column="54" selection-end-line="118" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/z3/register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="104" max-vertical-offset="2496">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/z3/createacc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="416" max-vertical-offset="1222">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/z3/MysqlMachine.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1854" max-vertical-offset="3224">
-          <caret line="108" column="78" selection-start-line="108" selection-start-column="78" selection-end-line="108" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/z3/history.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2478" max-vertical-offset="3484">
-          <caret line="108" column="29" selection-start-line="108" selection-start-column="29" selection-end-line="108" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/z2/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4082" max-vertical-offset="4914">
-          <caret line="157" column="35" selection-start-line="157" selection-start-column="35" selection-end-line="157" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/z3/googleoauth2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/z3/logout.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="1300">
@@ -721,7 +594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="780">
           <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -729,25 +601,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="494" max-vertical-offset="2418">
           <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
-          <folding>
-            <marker date="1414570817000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z5/redirect.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4317898" vertical-offset="52" max-vertical-offset="1352">
+          <caret line="46" column="1" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/z4/redirect.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.071428" vertical-offset="0" max-vertical-offset="1352">
+        <state vertical-scroll-proportion="0.0" vertical-offset="338" max-vertical-offset="1352">
           <caret line="13" column="30" selection-start-line="0" selection-start-column="0" selection-end-line="46" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.php">
+    <entry file="file://$PROJECT_DIR$/z2/show.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="827">
+        <state vertical-scroll-proportion="-2.543179" vertical-offset="2032" max-vertical-offset="3380">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z2/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4317898" vertical-offset="2938" max-vertical-offset="4914">
+          <caret line="157" column="35" selection-start-line="157" selection-start-column="35" selection-end-line="157" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -755,66 +636,107 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="827">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/z4/chat.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-61.035713" vertical-offset="2607" max-vertical-offset="4550">
+        <state vertical-scroll-proportion="2.1389236" vertical-offset="2607" max-vertical-offset="4550">
           <caret line="166" column="0" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="90" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/z3/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7857144" vertical-offset="2262" max-vertical-offset="3432">
-          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="122" selection-end-column="6" />
+        <state vertical-scroll-proportion="2.0738423" vertical-offset="735" max-vertical-offset="3432">
+          <caret line="92" column="21" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z5/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4230288" vertical-offset="494" max-vertical-offset="4940">
+          <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/z2/show.php">
+    <entry file="file://$PROJECT_DIR$/z5/helpers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="72.57143" vertical-offset="2032" max-vertical-offset="3380">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1413287110000" expanded="true" signature="256:693" placeholder="SELECT u.`id..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/z2/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-40.857143" vertical-offset="2938" max-vertical-offset="4914">
-          <caret line="157" column="35" selection-start-line="157" selection-start-column="35" selection-end-line="157" selection-end-column="35" />
-          <folding>
-            <marker date="1413318414000" expanded="true" signature="479:802" placeholder="SELECT osoby..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/z5/redirect.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-40.857143" vertical-offset="52" max-vertical-offset="1352">
-          <caret line="46" column="1" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
+        <state vertical-scroll-proportion="-0.041301627" vertical-offset="995" max-vertical-offset="2158">
+          <caret line="37" column="12" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/z5/find.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.071428" vertical-offset="442" max-vertical-offset="2496">
-          <caret line="30" column="173" selection-start-line="30" selection-start-column="173" selection-end-line="30" selection-end-column="173" />
+        <state vertical-scroll-proportion="0.57697123" vertical-offset="709" max-vertical-offset="1508">
+          <caret line="45" column="31" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/z5/index.php">
+    <entry file="file://$PROJECT_DIR$/z6/handler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5048544" vertical-offset="1014" max-vertical-offset="4628">
-          <caret line="53" column="3" selection-start-line="53" selection-start-column="3" selection-end-line="53" selection-end-column="3" />
+        <state vertical-scroll-proportion="-0.9285714" vertical-offset="0" max-vertical-offset="182">
+          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z6/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="364">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z6/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.8571428" vertical-offset="0" max-vertical-offset="494">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z1/ChartMaker.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.1802254" vertical-offset="1742" max-vertical-offset="5824">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z1/BarChart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.9374218" vertical-offset="2347" max-vertical-offset="3146">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z6/MyAPI.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.035714" vertical-offset="683" max-vertical-offset="1612">
+          <caret line="36" column="64" selection-start-line="36" selection-start-column="64" selection-end-line="36" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z6/API.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="7.428571" vertical-offset="1820" max-vertical-offset="3016">
+          <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z6/Meniny.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4892473" vertical-offset="582" max-vertical-offset="2964">
+          <caret line="65" column="26" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
           <folding />
         </state>
       </provider>
