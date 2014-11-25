@@ -30,6 +30,7 @@
 
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Michal Gallovic</a></li>
+            <li><a href="docs/index.php">API Docs</a></li>
         </ul>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
