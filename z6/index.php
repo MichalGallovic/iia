@@ -40,6 +40,7 @@
 </nav>
 <div class="container text-center">
     <h1>Hľadaj meniny, sviatky, pamätné dni:</h1>
+    <a href="den_mesiac.php" class="btn btn-danger">Deň & Mesiac</a>
     <a href="meno.php" class="btn btn-info">Meno</a>
     <a href="meno_stat.php" class="btn btn-success">Meno & Štát</a>
     <a href="sviatky.php" class="btn btn-warning">Sviatky</a>

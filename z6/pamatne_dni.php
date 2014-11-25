@@ -40,13 +40,73 @@
 </nav>
 <div class="container text-center">
     <h1>Slovenské pamätné dni: </h1>
-    
+
     <div id="panels" class="space">
 
     </div>
 
 </div>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="http://momentjs.com/downloads/moment-with-locales.js"></script>
+<script>
+    $(document).ready(function(){
+        moment.locale('sk', {
+            longDateFormat: {
+                LL : 'DD MMMM'
+            }
+        });
 
+        $.ajax({
+            type: 'GET',
+            url: 'api/v1/pamatne_dni?state=sk'
+        }).then(function(response) {
+            showHolidays(response);
+        })
+
+
+        var showHolidays = function(response) {
+            var chunks = [];
+            for(var i = 0; i<response.length;) {
+                chunks.push(response.slice(i,i+=4));
+            }
+            chunks.forEach(function(chunk) {
+                var row = $('<div/>', {
+                    class: 'row'
+                });
+                var container;
+                chunk.forEach(function(elm){
+                    container = $('<div/>', {
+                        class: 'col-sm-3'
+                    });
+
+                    var panel = $("<div/>", {
+                        class: 'panel panel-default'
+                    }).appendTo(container);
+                    var body = $("<div/>", {
+                        class: 'panel-body'
+                    }).appendTo(panel);
+
+                    var when = elm.day;
+                    when = when.substr(0,2) + "-" + when.substr(2,2);
+                    when = moment(when).format('LL');
+
+                    var strong = $("<strong/>", {
+                        style: 'display: block',
+                        text: when
+                    }).appendTo(body);
+
+                    strong.after(elm.name);
+
+                    container.appendTo(row);
+                });
+                row.appendTo($('#panels'));
+            });
+        }
+    });
+</script>
+</body>
+</html>
 
 
 

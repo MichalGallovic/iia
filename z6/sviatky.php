@@ -93,7 +93,6 @@
             for(var i = 0; i<response.length;) {
                 chunks.push(response.slice(i,i+=4));
             }
-            console.log(chunks);
             chunks.forEach(function(chunk) {
                 var row = $('<div/>', {
                     class: 'row'
