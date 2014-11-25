@@ -4,23 +4,10 @@ require_once 'Meniny.php';
 
 class MyAPI extends API
 {
-    protected $User;
 
     public function __construct($request, $origin) {
         parent::__construct($request);
 
-    }
-
-    /**
-     * Example of an Endpoint
-     */
-    protected function example() {
-        if ($this->method == 'GET') {
-//            return "Your name is ";
-            return $this->args;
-        } else {
-            return "Only accepts GET requests";
-        }
     }
 
     protected function meniny() {
@@ -47,11 +34,35 @@ class MyAPI extends API
 
                 if(isset($name) && isset($state)) {
                     return $meniny->findDate($name,$state);
+                } else if(isset($name) && !isset($state)) {
+                    return $meniny->findByName($name);
                 }
             }
 
 
         }
 
+    }
+
+    protected function sviatky() {
+        $meniny = new Meniny();
+        $state = null;
+        if($this->method == 'GET') {
+            $state = $this->request["state"];
+            if(isset($state)) {
+                return $meniny->allHolidaysByState($state);
+            }
+        }
+    }
+
+    protected function pamatne_dni() {
+        $meniny = new Meniny();
+        $state = null;
+        if($this->method == 'GET') {
+            $state = $this->request["state"];
+            if(isset($state)) {
+                return $meniny->allRedLetterDays($state);
+            }
+        }
     }
 }

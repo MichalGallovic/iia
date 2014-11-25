@@ -33,6 +33,69 @@ class Meniny {
         return $result;
     }
 
+    public function allHolidaysByState($state) {
+        $result = [];
+        foreach($this->xml as $item) {
+            switch(strtolower($state)) {
+                case 'sk':
+                    $sviatok = $item->SKsviatky;
+                    if(!empty($sviatok)) {
+                        array_push($result,
+                            [
+                                'day'               =>  (string)$item->den,
+                                'name'  =>  (string)$sviatok
+                            ]
+                        );
+                    }
+                    break;
+                case 'cz':
+                    $sviatok = $item->CZsviatky;
+                    if(!empty($sviatok)) {
+                        array_push($result,
+                            [
+                                'day'               =>  (string)$item->den,
+                                'name'  =>  (string)$sviatok
+                            ]
+                        );
+                    }
+                    break;
+            }
+
+        }
+
+        if(!empty($result)) {
+            return $result;
+        } else {
+            throw new Exception('Pre danú krajinu sa záznamy o sviatkoch nenachádzajú.');
+        }
+    }
+
+    public function allRedLetterDays($state) {
+        $result = [];
+        foreach($this->xml as $item) {
+            switch(strtolower($state)) {
+                case 'sk':
+                    $pamatny_den = $item->SKdni;
+                    if(!empty($pamatny_den)) {
+                        array_push($result,
+                            [
+                                'day'               =>  (string)$item->den,
+                                'name'  =>  (string)$pamatny_den
+                            ]
+                        );
+                    }
+                    break;
+            }
+
+        }
+
+        if(!empty($result)) {
+            return $result;
+        } else {
+            throw new Exception('Pre danú krajinu sa záznamy o pamätných dňoch nenachádzajú.');
+        }
+    }
+
     public function findByDate($day, $month) {
         $result = null;
         foreach($this->xml as $item) {
@@ -87,6 +150,33 @@ class Meniny {
             return $result;
         } else {
             throw new Exception('Pre kombináciu meno - štát neexistuje záznam.');
+        }
+    }
+
+    public function findByName($name) {
+        $result = [];
+        $indexes = ["SKd"=>'sk',"CZ"=>'cz',"HU"=>'hu',"PL"=>'pl',"AT"=>'at'];
+
+        foreach($this->xml as $item) {
+            foreach($indexes as $key => $value) {
+                $names = str_replace(" ","",$item->{$key});
+                $names = explode(",",$names);
+                foreach($names as $nameItem) {
+                    if(strtolower($nameItem) == strtolower($name)) {
+                        array_push($result,
+                            [
+                                "day"   =>  (string)$item->den,
+                                "state"  =>  $value
+                            ]
+                        );
+                    }
+                }
+            }
+        }
+        if(!empty($result)) {
+            return $result;
+        } else {
+            throw new Exception('Pre takéto meno, neexistuje záznam.');
         }
     }
     private function _getDayFromNames($subject, $searching, $item) {
