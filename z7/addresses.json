@@ -1,0 +1,22 @@
+[
+    {
+        "town"      :   "Bratislava",
+        "street"    :   "Plzenská 5"
+    },
+    {
+        "town"      :   "Trenčín",
+        "street"    :   "Kúty 48"
+    },
+    {
+        "town"      :   "Žilina",
+        "street"    :   "Na Horevaží,"
+    },
+    {
+        "town"      :   "Kežmarok",
+        "street"    :   "Huncovská 291/15"
+    },
+    {
+        "town"      :   "Košice",
+        "street"    :   "Južná trieda 1598/82"
+    }
+]

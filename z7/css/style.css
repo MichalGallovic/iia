@@ -1,0 +1,11 @@
+html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+#controll-box {
+    position: absolute;
+    z-index: 1000;
+    min-height: 50px;
+    left: 20px;
+    top: 20px;
+}
+.space-sm{
+    margin-top: 20px;
+}
