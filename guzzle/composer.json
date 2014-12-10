@@ -1,0 +1,13 @@
+{
+    "name": "root/guzzle",
+    "description": "Examples from Guzzle Lib",
+    "require": {
+        "guzzle/guzzle": "~3.9"
+    },
+    "authors": [
+        {
+            "name": "Michal Gallovic",
+            "email": "gallovicm@gmail.com"
+        }
+    ]
+}

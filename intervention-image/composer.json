@@ -1,0 +1,13 @@
+{
+    "name": "root/intervention-image",
+    "description": "Showing functionality of intervention-image",
+    "require": {
+        "intervention/image": "~2.0"
+    },
+    "authors": [
+        {
+            "name": "Michal Gallovic",
+            "email": "gallovicm@gmail.com"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+.space-sm{
+    margin-top: 20px;
+}
+.space-xs {
+    margin-top: 10px;
+}
+.badge-repo {
+    vertical-align: middle;
+    padding: 7px;
+}

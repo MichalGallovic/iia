@@ -1,5 +1,6 @@
 (function() {
     var map, directionsDisplay,directionsService;
+    google.maps.event.addDomListener(window, 'load', initialize);
 
     $('#compute-route').click(function() {
         getJSON("addresses.json").then(function(response) {
@@ -37,8 +38,9 @@
         });
     });
 
+
+
     function setUIforRoute(route) {
-        console.log(route);
         $('#route-info').empty();
         var fulldist = 0;
         route.legs.forEach(function(elm, index) {
@@ -68,7 +70,6 @@
                 p.appendTo($('#route-info'));
             }
         });
-        console.log(fulldist);
         $("<hr>").appendTo($('#route-info'));
         $("<h4/>",{
             class: "text-center",
@@ -160,5 +161,4 @@
 
         return promise;
     }
-    google.maps.event.addDomListener(window, 'load', initialize);
 })();
